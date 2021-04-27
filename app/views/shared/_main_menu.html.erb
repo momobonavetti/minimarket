@@ -1,0 +1,28 @@
+<div class="collapse navbar-collapse show" id="navbarWithDropdown">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+      <%= link_to "Inicio", root_url, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Products", products_url, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+      <!-- Item de Menú HTML Estándar (Desde el código de Ejemplo) -->
+      <!-- <a class="nav-link" href="#">Marcas</a> -->
+
+      <!-- Item de Menú en un Tag Ruby on Rails -->
+      <%= link_to "Brands", brands_url, class: 'nav-link' %>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href=" <%= categories_url %>" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Categorías
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+      <% Category.all.each do |cat| %>
+        <li><%= link_to cat.name, cat, class: 'dropdown-item' %></li>
+      <% end %>
+      </ul>
+    </li>
+  </ul>
+</div>
