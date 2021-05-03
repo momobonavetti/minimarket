@@ -1,0 +1,29 @@
+es:
+  activerecord:
+    models:
+      product: "Producto"
+    attributes:
+      product:
+        name: "Nombre"
+        description: "Descripción"
+        image_url: "Imagen"
+        price: "Precio"
+        active: "Activo"
+        on_sale: "En Oferta"
+        brand_id: "Marca"
+        brand_id: "Categoría"
+        stock: "Stock"
+        discount_percentage: "Porcentaje de Descuento"
+  products:
+    index:
+      title: "Listado de Productos"
+    store:
+      title: "Mi Tienda"
+      sorry: "Lo lamentamos! Esta categoría no dispone productos para la venta"
+    new:
+      title: "Nuevo Producto"
+    edit:
+      title: "Editando Producto: %{name}"
+
+
+# TAREA:

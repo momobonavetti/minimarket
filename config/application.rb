@@ -11,8 +11,14 @@ module Minimarket
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+
+    # INTTERNATIONALIZATION CONFIGS
     # Set Default Locale
     config.i18n.default_locale = :es
+    # Set Available Locales
+    # config.i18n.available_locales = [:es, :en, :de]
+    # Set Fallbacks
+    config.i18n.fallbacks = true
 
     # Configuration for the application, engines, and railties goes here.
     #

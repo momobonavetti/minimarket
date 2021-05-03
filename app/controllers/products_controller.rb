@@ -8,7 +8,11 @@ class ProductsController < ApplicationController
 
   # "CLONE" for Index View
   def store
-    @products = Product.all
+    if params[:category] # Si viene el parámetro de category_id, devuelvo las recetas de la categoría
+      @products = Product.where(category_id: params[:category])
+    else
+      @products = Product.all
+    end
   end
 
   # GET /products/1 or /products/1.json

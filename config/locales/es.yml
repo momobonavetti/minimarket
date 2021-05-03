@@ -1,3 +1,12 @@
 es:
-  welcome: "Bienvenido, querido cliente!"
+  welcome: "Bienvenido, %{customer}!!"
   language_details: "Usted esta navegando en Español"
+  something:
+    else: "Algo más"
+    anything: "sarasa"
+  g:
+    save: "Guardar"
+    show: "Mostrar"
+    edit: "Editar"
+    destroy: "Borrar"
+    are_you_sure: "Está usted seguro?"

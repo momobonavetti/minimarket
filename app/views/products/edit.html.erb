@@ -1,4 +1,7 @@
-<h1>Editing Product</h1>
+<h1> <%= t('.title', name: @product.name) %> </h1>
+
+<%#=  t('.title', name: link_to(@product.name, @product)) %>
+<%#= raw t('.title', name: link_to(@product.name, @product)) %>
 
 <%= render 'form', product: @product %>
 

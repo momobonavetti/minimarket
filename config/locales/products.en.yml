@@ -1,0 +1,26 @@
+en:
+  activerecord:
+    models:
+      product: Product
+    attributes:
+      product:
+        name: "Name"
+        description: "Description"
+        image_url: "Image"
+        price: "Price"
+        active: "Active"
+        on_sale: "SALE!"
+        brand_id: "Brand"
+        brand_id: "Category"
+        stock: "Stock"
+        discount_percentage: "Discount Percentage"
+  products:
+    index:
+      title: "Listing Products"
+    store:
+      title: "My Shop"
+      sorry: "Sorry. No products in this category!"
+    new:
+      title: "New Product"
+    edit:
+      title: "Editing Product: %{name}"
