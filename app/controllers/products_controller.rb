@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: [:store, :show]
   before_action :set_product, only: %i[ show edit update destroy ]
 
   # GET /products or /products.json

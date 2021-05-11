@@ -17,9 +17,22 @@
     <%= render 'shared/navbar' %>
 
     <div class="container" style="margin-top: 80px !important; min-height: 950px;">
+      <!-- Espacio para mostrar los mensajes de aplicación (:flash, :notice, :error, etc)" -->
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: "alert alert-info" %>
+      <% end %>
+
       <!-- METODO POR DEFECTO / HELPER "t" -->
       <%#= I18n.t('welcome') %>
-      <h1> <%= t('welcome', customer: "John Doe") %>  </h1>
+      <% if user_signed_in? %>
+        <h1> <%= t('welcome', customer: current_user.first_name) %>  </h1>
+      <% end %>
+
+      <code>
+        <br>
+        User Signed IN?: <%= user_signed_in? %><br>
+        Current User?: <%= current_user.inspect %>
+      </code>
 
       <div class="text-end">
         <%= render 'shared/language_switcher' %>

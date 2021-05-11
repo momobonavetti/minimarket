@@ -36,7 +36,7 @@
               <%#= number_to_currency(product.price, :unit => "ARS $") %>
               <hr>
               <%= link_to 'SHOW', product, class: 'btn btn-sm btn-outline-secondary' %>
-              <%= check_stock(product) %>
+              <%= check_stock(product) if user_signed_in? %>
             </p>
             <div class="card-footer">
               <small class="text-muted">Last updated:<br><%= product.updated_at %></small>

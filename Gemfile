@@ -22,6 +22,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Autenticación`
+gem 'devise'
+
+# Pueden Investigar la gema Letter Opener, para recibir más facilmente los correos, que de otra forma irían por la consola.
+# gem "letter_opener", :group => :development
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
