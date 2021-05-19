@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 
 # Autenticación`
 gem 'devise'
+# Autorización
+gem 'cancancan'
 
 # Pueden Investigar la gema Letter Opener, para recibir más facilmente los correos, que de otra forma irían por la consola.
 # gem "letter_opener", :group => :development

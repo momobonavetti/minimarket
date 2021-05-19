@@ -9,6 +9,14 @@ Rails.application.routes.draw do
       get :store
     end
   end
+
+  get 'administrators', to: 'administrators#index'
+  get 'toggle_admin', to: 'administrators#toggle_admin'
+  # get 'add_admin', to: 'administrators#add_admin'
+  # get 'remove_admin', to: 'administrators#remove_admin'
+
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'products#store'
 end

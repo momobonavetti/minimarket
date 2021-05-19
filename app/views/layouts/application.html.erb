@@ -22,17 +22,26 @@
         <%= content_tag :div, msg, class: "alert alert-info" %>
       <% end %>
 
-      <!-- METODO POR DEFECTO / HELPER "t" -->
-      <%#= I18n.t('welcome') %>
       <% if user_signed_in? %>
         <h1> <%= t('welcome', customer: current_user.first_name) %>  </h1>
       <% end %>
 
-      <code>
-        <br>
-        User Signed IN?: <%= user_signed_in? %><br>
-        Current User?: <%= current_user.inspect %>
-      </code>
+      <!-- <div class="card">
+        <code>
+          <strong>For Testing Purpouses:</strong>
+          <hr>
+          User Signed IN?: <%= user_signed_in? %>
+          <hr>
+          Current User: <%= current_user.inspect %>
+          <hr>
+          Can Manage ALL? <%= can? :manage, :all %><br>
+          Can Manage Products? <%= can? :manage, Product %><br>
+          Can Manage Brands? <%= can? :manage, Brand %><br>
+          Can Manage Categories? <%= can? :manage, Category %><br>
+          Can Index Administrators? <%= can? :index, :administrator %><br>
+          Can Toggle Administrators? <%= can? :toggle_admin, :administrator %><br>
+        </code>
+      </div> -->
 
       <div class="text-end">
         <%= render 'shared/language_switcher' %>

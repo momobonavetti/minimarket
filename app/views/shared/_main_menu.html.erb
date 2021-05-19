@@ -1,30 +1,26 @@
 <div class="collapse navbar-collapse show" id="navbarWithDropdown">
   <ul class="navbar-nav">
     <li class="nav-item">
-      <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
       <%= link_to "Inicio", root_url, class: 'nav-link' %>
     </li>
     <li class="nav-item">
-      <%= link_to "Products", products_url, class: 'nav-link'%>
-      <%#= link_to "Products", products_url, class: 'nav-link' if user_signed_in? %>
+      <%= link_to "Products", products_url, class: 'nav-link' if can? :manage, Product%>
     </li>
     <li class="nav-item">
-      <%# if user_signed_in? %>
-        <%= link_to "Marcas", brands_url, class: 'nav-link'  %>
-      <%# else %>
-        <%#= link_to "Marcas", "#", class: 'nav-link disabled'  %>
-     <%# end %>
+      <%= link_to "Marcas", brands_url, class: 'nav-link' if can? :manage, Brand %>
     </li>
+    <!-- Dropdown -->
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href=" <%= categories_url %>" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Categorías
-      </a>
+      <a class="nav-link dropdown-toggle" href=" <%= categories_url %>" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorías</a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-      <li><%= link_to "Editar Categorias", categories_url, class: 'dropdown-item'  %></li>
-      <% Category.all.each do |cat| %>
-        <li><%= link_to cat.name, store_products_url(category: cat.id), class: 'dropdown-item' %></li>
-      <% end %>
+        <li><%= link_to "Editar Categorias", categories_url, class: 'dropdown-item' if can? :index, Category %></li>
+        <% Category.all.each do |cat| %>
+          <li><%= link_to cat.name, store_products_url(category: cat.id), class: 'dropdown-item' %></li>
+        <% end %>
       </ul>
+    </li>
+    <li>
+      <%= link_to "Administrators", administrators_url, class: 'nav-link' if can? :index, :administrator %>
     </li>
   </ul>
 </div>
