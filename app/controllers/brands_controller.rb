@@ -1,7 +1,7 @@
 class BrandsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-  before_action :set_brand, only: %i[ show edit update destroy ]
+  before_action :set_brand, only: %i[ show edit update destroy destroy_image ]
 
   # GET /brands or /brands.json
   def index
@@ -19,6 +19,11 @@ class BrandsController < ApplicationController
 
   # GET /brands/1/edit
   def edit
+  end
+
+  def destroy_image
+    @brand.image.purge_later
+    redirect_to @brand
   end
 
   # POST /brands or /brands.json
@@ -66,6 +71,6 @@ class BrandsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def brand_params
-      params.require(:brand).permit(:name, :description, :image_url)
+      params.require(:brand).permit(:name, :description, :image_url, :image)
     end
 end

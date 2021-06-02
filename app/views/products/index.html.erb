@@ -12,6 +12,7 @@
       <th><%= t('activerecord.attributes.product.active') %></th>
       <th><%= t('activerecord.attributes.product.on_sale') %></th>
       <th><%= t('activerecord.attributes.product.stock') %></th>
+      <th><%= t('activerecord.attributes.product.brochure') %></th>
       <th><%= t('activerecord.attributes.product.discount_percentage') %></th>
       <th><%= t('activerecord.attributes.product.brand_id') %></th>
       <th>Category</th>
@@ -24,11 +25,12 @@
       <tr class=" <%= stock_on_row(product) %> ">
         <td><%= product.name %><br><%= raw product_on_sale?(product) %></td>
         <td><%= product.description %></td>
-        <td><%#= product.image_url %> <%= image_tag product.image_url, height: '50px' %> </td>
+        <td><%= product.product_image.attached? ? (image_tag product.product_image , height: '50px') : (image_tag product.image_url, height: '50px') %> </td>
         <td><%= product.price %></td>
         <td><%= raw iconify_active(product.active) %></td>
         <td><%= product.on_sale %></td>
         <td><%= product.stock %></td>
+        <td><%= product.brochure.attached? ? (link_to "Descargar", rails_blob_path(product.brochure, disposition: 'attachment'), class: 'badge bg-success') : "NO" %></td>
         <td><%= product.discount_percentage %></td>
         <td><%= product.brand.name %></td>
         <td><%= product.category.name %></td>

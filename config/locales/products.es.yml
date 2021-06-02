@@ -7,6 +7,8 @@ es:
         name: "Nombre"
         description: "Descripción"
         image_url: "Imagen"
+        product_image: "Imagen (Subida mediante ActiveResource)"
+        brochure: "Documento PDF/DOC"
         price: "Precio"
         active: "Activo"
         on_sale: "En Oferta"

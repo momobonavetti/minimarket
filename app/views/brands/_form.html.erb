@@ -11,19 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
+  <div class="mb-3">
+    <!-- Old Approach (External Image URL) -->
+    <%= form.label :image_url, class: "form-label" %>
+    <%= form.text_field :image_url, class: "form-control" %>
+    <!-- Image Attachment (Via ActiveStorage) -->
+    <%= form.label :image, class: "form-label" %>
+    <%= form.file_field :image, class: "form-control" %>
+    <!-- <small class="badge bg-primary">Has Attached Image?: <%= @brand.image.attached?  %> </small> -->
+
   </div>
 
   <div class="actions">

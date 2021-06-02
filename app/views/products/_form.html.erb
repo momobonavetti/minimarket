@@ -11,57 +11,71 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="mb-3">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="mb-3">
+    <%= form.label :product_image, class: "form-label" %>
+    <%= form.file_field :product_image, class: "form-control" %>
+    <small class="badge bg-success">Has Single Attached Image?: <%= @product.product_image.attached?  %> </small>
+    <!-- Old Approach (External Image URL) -->
+    <br>
+    <small>URL</small>
     <%= form.label :image_url %>
     <%= form.text_field :image_url %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+  <div class="mb-3">
+    <%= form.label :brochure, class: "form-label" %>
+    <%= form.file_field :brochure, class: "form-control" %>
+    <small class="badge bg-primary">Has Attached Brochure/PDF?: <%= @product.brochure.attached?  %> </small>
+  </div>
+  <hr>
+
+  <div class="mb-3">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.text_field :price, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :stock %>
-    <%= form.text_field :stock %>
+  <div class="mb-3">
+    <%= form.label :stock, class: "form-label" %>
+    <%= form.text_field :stock, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :discount_percentage %>
-    <%= form.text_field :discount_percentage %>
+  <div class="mb-3">
+    <%= form.label :discount_percentage, class: "form-label" %>
+    <%= form.text_field :discount_percentage, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
+  <div class="mb-3 form-check">
+    <%= form.label :active, class: "form-label" %>
+    <%= form.check_box :active, class: "form-check-input"%>
   </div>
 
-  <div class="field">
-    <%= form.label :on_sale %>
-    <%= form.check_box :on_sale %>
+  <div class="mb-3 form-check">
+    <%= form.label :on_sale, class: "form-label" %>
+    <%= form.check_box :on_sale, class: "form-check-input" %>
   </div>
 
-  <div class="field">
-    <%= form.label :brand_id %>
-    <%= form.collection_select :brand_id, Brand.all, :id, :name %>
+  <div class="mb-3">
+    <%= form.label :brand_id, class: "form-label" %>
+    <%= form.collection_select :brand_id, Brand.all, :id, :name, html_options = { class: "form-select form-control" } %>
   </div>
 
-  <div class="form-group">
+  <div class="mb-3">
     <%= form.label :category_id %>
-    <%= form.collection_select :category_id, Category.all, :id, :name %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, class: 'form-control' %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>

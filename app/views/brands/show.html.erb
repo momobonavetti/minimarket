@@ -9,11 +9,55 @@
   <strong>Description:</strong>
   <%= @brand.description %>
 </p>
-
 <p>
-  <strong>Image url:</strong>
+  <strong>Image External URL:</strong>
+  <br>
+  <%= image_tag @brand.image_url, height: "150px" %>
+  <br>
   <%= @brand.image_url %>
+  <!-- Attachment URL -->
 </p>
+<hr>
+<% if @brand.image.attached? %>
+
+  <!-- ActiveResource -->
+  <p>
+    <strong>Brand Image (ActiveResource):</strong><br>
+    <%= link_to "Eliminar Imagen", destroy_image_brand_url(@brand), class: "btn btn-block btn-danger" %>
+    <br>
+    <!-- <code>
+      <%= @brand.image %>
+    </code> -->
+
+    <!-- Image Tag -->
+    <br>
+    <small>ImageTag</small><br>
+    <%= image_tag @brand.image, height: "250px" %>
+
+    <!-- Attachment URLs
+    <br>
+    <small>Url</small><br>
+    <%= url_for(@brand.image) %>
+
+    <!-- Attachment Blob Path -->
+    <!-- <br> -->
+    <!-- <small>Blob</small><br> -->
+    <%#= rails_blob_path(@brand.image) %>
+
+    <!-- Preview Link -->
+    <br>
+    <small>Link to Preview</small><br>
+    <%= link_to @brand.image.filename, rails_blob_path(@brand.image, disposition: 'preview') %>
+
+    <!-- Download Link -->
+    <br>
+    <small>Link to Download</small><br>
+    <%= link_to @brand.image.filename, rails_blob_path(@brand.image, disposition: 'attachment') %>
+  </p>
+<% else %>
+<h4>No hay ninguna imagen de marca LOCAL</h4>
+
+<% end %>
 
 <%= link_to 'Edit', edit_brand_path(@brand) %> |
 <%= link_to 'Back', brands_path %>

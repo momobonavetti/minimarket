@@ -16,6 +16,35 @@
 </p>
 
 <p>
+  <strong>Product Image:</strong>
+  <%= @product.product_image %>
+  <br>
+  <!-- Image Tag -->
+  <%#= image_tag @product.product_image, height: "200px" %>
+  <!-- Attachment URL -->
+  <%#= url_for(@product.product_image) %>
+  <!-- Attachment Blob Path -->
+  <%#= rails_blob_path(@product.product_image) %>
+  <!-- Preview Link -->
+  <%#= link_to @product.product_image.filename, rails_blob_path(@product.product_image, disposition: 'preview') %>
+  <!-- Download Link -->
+  <%#= link_to @product.product_image.filename, rails_blob_path(@product.product_image, disposition: 'attachment') %>
+</p>
+
+<p>
+  <strong>Documento PDF/DOC:</strong><br>
+  <% if @product.brochure.attached? %>
+    <%= @product.brochure.filename %><br>
+    (<%= link_to "Previsualizar", rails_blob_path(@product.brochure, disposition: 'preview') %> |
+    <%= link_to "Descargar", rails_blob_path(@product.brochure, disposition: 'attachment') %>)
+  <% else %>
+    Todavía no se cargó un documento!
+  <% end %>
+
+
+</p>
+
+<p>
   <strong>Price:</strong>
   <%= @product.price %>
 </p>
@@ -32,12 +61,12 @@
 
 <p>
   <strong>Brand:</strong>
-  <%= @product.brand_id %>
+  <%= @product.brand.name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @product.category_id %>
+  <%= @product.category.name %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

@@ -16,7 +16,13 @@
   <tbody>
     <% @brands.each do |brand| %>
       <tr>
-        <td><%= image_tag brand.image_url, height: '50px' %></td>
+        <td>
+          <% if brand.image.attached? %>
+            <%= image_tag brand.image, height: '50px' %>
+          <% else %>
+            <%= image_tag brand.image_url, height: '50px' %>
+          <% end %>
+        </td>
         <td><%= brand.name %></td>
         <td><%= brand.description %></td>
         <td><%= link_to 'Show', brand %></td>

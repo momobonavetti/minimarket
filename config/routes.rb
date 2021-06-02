@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :categories
-  resources :brands
+  resources :brands do
+    member do
+      get :destroy_image
+    end
+  end
 
   resources :products do
     collection do
